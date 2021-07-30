@@ -1,0 +1,56 @@
+<div class="hold-transition login-page">
+  <div class="login-box animate__animated animate__backInLeft">
+
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Inicie su sesión</p>
+
+        <form autocomplete="off">
+          <div class="input-group mb-3">
+            <input type="email" [(ngModel)]="user.userName" name="userName"  class="form-control" placeholder="Usuario/Email" autocomplete="off">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope" style="color: rgb(48, 37, 37);"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" [(ngModel)]="user.userPass" name="userPass" class="form-control" placeholder="Password" autocomplete="off">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock" style="color: rgb(48, 37, 37);"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember" class="ml-2">
+                  Recordarme
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-outline-secondary btn-block" (click)="onLogin()">Iniciar</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+        <!-- /.social-auth-links -->
+
+        <p class="mb-1">
+          <a href="forgot-password.html" class="link-pass"> Recuperar contraseña</a>
+        </p>
+        <!-- <p class="mb-0">
+          <a routerLink="/register" class="text-center link-reg cursor">Registrarme</a>
+        </p> -->
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  <!-- /.login-box -->
+</div>

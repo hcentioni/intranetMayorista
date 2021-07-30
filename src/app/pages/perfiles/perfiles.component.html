@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Perfiles de usuarios</h3>
+  
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+          <i class="fas fa-minus"></i></button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+          <i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div class="card-body">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover"
+    style="width:100%">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th data-priority="1">Apellido</th>
+        <th>Nombre</th>
+        <th>EmailContacto</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of perfiles">
+        <td style="width: 20px;">{{ item.IdClienteContacto }}</td>
+        <td>{{ item.Apellido }}</td>
+        <td>{{ item.Nombre }}</td>
+        <td>{{ item.EmailContacto }}</td>
+        <td style="width: 50px;">
+            <i class="fas fa-edit fg-lg text-info mr-2" style="cursor: pointer;"></i>
+            <i class="fas fa-trash-alt fg-lg text-danger" style="cursor: pointer;"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+      Footer
+    </div>
+    <!-- /.card-footer-->
+  </div>

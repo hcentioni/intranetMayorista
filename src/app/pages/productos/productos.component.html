@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">DataTable with default features</h3>
+    <!-- <button mat-button (click)="mostrarMensaje()">Launch dialog</button> -->
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover"
+      style="width:100%">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th data-priority="1">Código</th>
+          <th>Detalle</th>
+          <th>P.Neto</th>
+          <th style="width: 130px;">Comprar</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let item of productos">
+          <td style="width: 50px;"><img style="width: 50px; height: 50px;" src="{{item.origin}}"></td>
+          <td>{{ item.CodigoBarras }}</td>
+          <td>{{ item.Detalle }}</td>
+          <td style="text-align: right;">{{ item.VentaNeto | currency }}</td>
+          <td>
+            <input style="width: 60px; text-align: center;" type="number" name="" id="" min="0" placeholder="0">
+            <i class="fas fa-cart-plus fg-lg text-info ml-3" style="cursor: pointer;">
+              <!-- <a routerLink="/dashboard/productodetalle">Detalle</a> | -->
+            </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+ 
+<!-- "ball-clip-rotate" -->
+<!-- " "line-spin-clockwise-fade-rotating"  -->
+    <div style="position: relative">
+      <ngx-spinner
+        bdOpacity = 0.9
+        bdColor = "#f4f4f9"
+        size = "medium"
+        color = "#1010ee"
+        type = "ball-clip-rotate"
+        [fullScreen] = "false"
+      >
+    </ngx-spinner>
+  </div>
+    <!-- <div style="position: relative">
+      <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+        <p style="color: white"> Cargando Productos... </p>
+      </ngx-spinner>
+    </div> -->
+  </div>
+
+</div>
