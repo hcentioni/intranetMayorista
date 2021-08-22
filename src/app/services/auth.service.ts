@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  // private url='http://localhost:3000/';
+
   private url=environment.API_URL;
 
   constructor(private http:HttpClient, private router: Router) { 
@@ -34,6 +34,7 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('carrito');
     this.router.navigate(['/login'])
   }
   private tokenExpired(token: string) {
@@ -41,4 +42,5 @@ export class AuthService {
     return (Math.floor((new Date).getTime() / 1000)) >= expiry;
   }
   
+
 }

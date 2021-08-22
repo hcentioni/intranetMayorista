@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -25,8 +26,17 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token);
         this.router.navigate(['/dashboard']);
       },
-        err => alert("Usuario/Contraseña incorrectos")
+        err => {
+          this.informarError();
+        }
       )
   }
-
+  informarError(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'El usuario o la contraseña son incorrectos!',
+    })
+  }
+  
 }

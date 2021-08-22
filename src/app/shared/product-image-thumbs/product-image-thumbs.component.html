@@ -1,0 +1,11 @@
+<div class="col-12">
+  <img src="{{mainImage}}" class="product-image" alt="Product Image">
+</div>
+<div class="col-12 product-image-thumbs">
+  <ng-continer *ngFor="let item of imagenesMiniaturas">
+    <div *ngIf="item.Principal; else elseBlock" class="product-image-thumb active"><img src="{{item.origin}}" alt="Product Image"(click)="changeMainImg(item.origin)"></div>
+    <ng-template #elseBlock>
+      <div class="product-image-thumb" ><img src="{{item.origin}}" alt="Product Image" (click)="changeMainImg(item.origin)"></div>
+    </ng-template>
+  </ng-continer>
+</div>

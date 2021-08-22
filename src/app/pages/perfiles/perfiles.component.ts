@@ -38,7 +38,7 @@ export class PerfilesComponent implements OnInit {
       responsive: true,
       // dom: 'Bfrtip'
     };
-    this.api.usersGet(20414).subscribe(data =>{
+    this.api.usersGet().subscribe(data =>{
         this.perfiles = data;
         this.dtTrigger.next();
       });

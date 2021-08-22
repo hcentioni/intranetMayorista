@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
@@ -12,6 +12,8 @@ import { NopageFoundComponent } from './nopage-Found/nopage-found/nopage-found.c
 import { AuthModule } from './auth/auth.module';
 import { SpinnerInterceptorService } from './services/spinner-interceptor.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     {
       provide: LocationStrategy, 
       useClass: HashLocationStrategy
-    }
+    },
  ],
   bootstrap: [AppComponent]
 })

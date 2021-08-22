@@ -1,7 +1,6 @@
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">DataTable with default features</h3>
-    <!-- <button mat-button (click)="mostrarMensaje()">Launch dialog</button> -->
   </div>
   <!-- /.card-header -->
   <div class="card-body">
@@ -21,7 +20,10 @@
         <tr *ngFor="let item of productos">
           <td style="width: 50px;"><img style="width: 50px; height: 50px;" src="{{item.origin}}"></td>
           <td>{{ item.CodigoBarras }}</td>
-          <td>{{ item.Detalle }}</td>
+          <td>
+            <!-- <a [routerLink]="" (click)="mostrarMensaje(item.IdArticulo, item.origin)">{{ item.Detalle}}</a> -->
+            <a [routerLink]="['productodetalle', item.IdArticulo]">{{ item.Detalle}}</a>
+          </td>
           <td style="text-align: right;">{{ item.VentaNeto | currency }}</td>
           <td>
             <input style="width: 60px; text-align: center;" type="number" name="" id="" min="0" placeholder="0">

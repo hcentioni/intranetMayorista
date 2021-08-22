@@ -1,0 +1,63 @@
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>Lo que querés.. buscalo acá !</mat-label>
+  <input [formControl]="search" matInput type="text" spellcheck="false" autocomplete="off"
+    placeholder="Ejemplo, Detalle Marca Categoria etc" (keydown.enter)="save($event)" [(ngModel)]="value">
+  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <!-- <div *ngIf="suggestions.length;"> -->
+      <div *ngIf="suggestions.length;" class="suggestions">
+        <div *ngIf="suggestionArticulos.length;" class="container">
+          <div class="list-group">
+            <a [routerLink]="" class="list-group-item active">ARTICULOS</a>
+            <li *ngFor="let s of suggestionArticulos">
+              <a [routerLink]="" (click)="onCargarPorArticulo(s.ID)"
+                class="list-group-item list-group-item-action list-group-item-light">{{s.Categoria}}</a>
+            </li>
+          </div>
+        </div>
+        <div *ngIf="suggestionCat.length;" class="container">
+          <div class="list-group">
+            <a [routerLink]="" class="list-group-item active">CATEGORIAS</a>
+            <li *ngFor="let s of suggestionCat">
+              <a [routerLink]="" (click)="onCargarPorCategorias(s.ID)"
+                class="list-group-item list-group-item-action list-group-item-light">{{s.Categoria}}</a>
+            </li>
+          </div>
+        </div>
+        <div *ngIf="suggestionSubCat.length;" class="container">
+          <div class="list-group">
+            <a [routerLink]="" class="list-group-item active">SUB CATEGORIAS</a>
+            <li *ngFor="let s of suggestionSubCat">
+              <a [routerLink]="" (click)="onCargarSubCategoria(s.ID)"
+                class="list-group-item list-group-item-action list-group-item-light">{{s.Categoria}}</a>
+            </li>
+          </div>
+        </div>
+        <div *ngIf="suggestionFamilia.length;" class="container">
+          <div class="list-group">
+            <a [routerLink]="" class="list-group-item active">FAMILIAS</a>
+            <li *ngFor="let s of suggestionFamilia">
+              <a [routerLink]="" (click)="onCargarPorFamilia(s.ID)"
+                class="list-group-item list-group-item-action list-group-item-light">{{s.Categoria}}</a>
+            </li>
+          </div>
+        </div>
+        <div *ngIf="suggestionMarcas.length;" class="container">
+          <div class="list-group">
+            <a [routerLink]="" class="list-group-item active">MARCAS</a>
+            <li *ngFor="let s of suggestionMarcas">
+              <a [routerLink]="" (click)="onCargarPorMarca(s.ID)"
+                class="list-group-item list-group-item-action list-group-item-light">{{s.Categoria}}</a>
+            </li>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>

@@ -1,5 +1,5 @@
 export interface ProductListI {
-    dArticulo: Number; 
+    IdArticulo: Number; 
     codigoBarras: String;
     Detalle: String;
     DetalleFiscal: String;

@@ -1,0 +1,40 @@
+export interface ProductDetalleOneI {
+    IdArticulo: Number; 
+    CodigoBarras: String; 
+    Detalle: String; 
+    DetalleFiscal: String; 
+    IdCategoria: Number; 
+    Categoria: String; 
+    IdSubCategoria: Number; 
+    SubCategoria: String; 
+    IdFamilia: Number; 
+    Familia: String; 
+    IdMarca: Number; 
+    Marca: String; 
+    obs: String; 
+    datasheet: String; 
+    Moneda: String; 
+    Simbolo: String; 
+    P_Neto: Number; 
+    Alicuota: Number; 
+    IdAlicuota : Number; 
+    TipoAlicuota: String; 
+    Iva: Number; 
+    P_Final: Number; 
+    StockLogico	: Number; 
+    // IdArticulo
+    // CodigoBarras: String; 
+    // Detalle: String;
+    // Obs: String; 
+    // VentaNeto: Number;  
+    // VentaConIva: Number; 
+    // Categoria: String;
+    // SubCategoria: String;
+    // Familia: String;
+    // Marca: String;
+    // Simbolo: String;
+    // large: String;
+    // medium: String;
+    // origin: String;
+    // small: String;
+}

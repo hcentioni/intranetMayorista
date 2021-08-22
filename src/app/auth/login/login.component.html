@@ -8,7 +8,7 @@
 
         <form autocomplete="off">
           <div class="input-group mb-3">
-            <input type="email" [(ngModel)]="user.userName" name="userName"  class="form-control" placeholder="Usuario/Email" autocomplete="off">
+            <input type="email" [(ngModel)]="user.userName" name="userName" spellcheck="false" required="required" class="form-control" placeholder="Usuario/Email" autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope" style="color: rgb(48, 37, 37);"></span>
@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" [(ngModel)]="user.userPass" name="userPass" class="form-control" placeholder="Password" autocomplete="off">
+            <input type="password" [(ngModel)]="user.userPass" name="userPass" spellcheck="false" class="form-control" required="required" placeholder="Password" autocomplete="off">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock" style="color: rgb(48, 37, 37);"></span>

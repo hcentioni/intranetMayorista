@@ -1,0 +1,37 @@
+/* .contenedor-imagen{
+    width: 148px; 
+    height: 123px;
+    background: rgb(255,255,255);
+}
+.div-imagen{
+    margin-top: 5px;
+    width: 100px; 
+    height: 100px;
+}
+*/
+.precio{
+    margin-left:auto;
+    color: #000;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+.div-detalle p{
+    margin-top: 3px;
+    color:lightslategrey ;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    text-align: center;
+} 
+
+
+
+div.polaroid {
+    width: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+  }
+  
+  div.container {
+    padding: 2px;
+  }

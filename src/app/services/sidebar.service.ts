@@ -32,7 +32,7 @@ export class SidebarService {
     titulo: 'Productos',
     icono: 'nav-icon fas fa-dolly',
     submenu: [
-      { titulo: 'Listado de productos', url: 'productos' },
+      { titulo: 'Listado de productos', url: 'listado' },
       { titulo: 'Lista de precio', url: '' },
     ]
   },
@@ -40,8 +40,8 @@ export class SidebarService {
     titulo: 'Pedidos',
     icono: 'nav-icon fas fa-shopping-cart',
     submenu: [
-      { titulo: 'Nuevo Pedido', url: 'pedidos' },
-      { titulo: 'Listado de pedidos', url: 'pedidos' },
+      { titulo: 'Nuevo Pedido', url: 'pedido' },
+      { titulo: 'Listado de pedidos', url: 'listapedidos' },
     ]
   }
   ,

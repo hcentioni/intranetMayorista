@@ -1,0 +1,83 @@
+.detalle{
+  text-align: left; 
+  font-weight: bold;
+  font-size:small;
+}
+.codigo{
+  /* background-color: dimgray; */
+  width: 100px;
+  text-align: left;
+  font-size:xx-small;
+  color: #000;
+  padding-left: 3px;
+}
+.stockSuc{
+  border-radius: 5px; 
+  padding-bottom: 3px;
+  margin: auto;
+  text-align: center;
+  font-size: small;
+  background: lightgreen;
+}
+.stockCdg{
+  border-radius: 5px; 
+  padding-bottom: 3px;
+  margin: auto;
+  text-align: center;
+  font-size: small;
+  background: lightslategrey;
+}
+.precio{
+  width: 100%;
+  text-align: center;
+  font-size:small;
+  color: #000;
+  padding-left: 3px;
+
+}
+
+.detalleiva{
+  background-color: dimgray;
+  width: 100%;
+  text-align: center;
+  font-size:xx-small;
+  color: white;
+  padding-left: 3px;
+}
+.infoStock{
+  background-color: dimgray;
+  text-align: center;
+  font-size:xx-small;
+  color: white;
+  padding-left: 3px;
+}
+mat-icon{
+  background-color:darkgreen;  
+}
+
+.sweet-alert { 
+  height:  100px;   
+}
+.my-select-panel-class {
+  width:20px;
+  max-width:20px;;
+}
+.suggestions {
+  padding: 1% 3%;
+  background: #fff;
+  border: solid 1px #000;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 100;
+}
+.suggestions li{
+  list-style: none;
+}
+.suggestions a{
+  font-size: small;
+  text-decoration: none;
+  color: #000;
+}
+.suggestions a:hover {
+  background-color:darkgrey;
+}

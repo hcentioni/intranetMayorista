@@ -1,0 +1,30 @@
+.mat-form-field{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.suggestions {
+     padding: 2% 2%; 
+    background: #fff;
+    /* border: solid 1px #000;*/
+    border-radius: 10px; 
+    position: absolute;
+     /* overflow-y: scroll; */
+    /* max-height: 400px; */
+    min-width: 70%;
+    z-index: 100;
+    box-shadow: 10px 10px 10px 10px grey;
+  }
+  .suggestions li{
+    list-style: none;
+  }
+  .suggestions a{
+    font-size: small;
+    text-decoration: none;
+    color: #000;
+  }
+  .suggestions a:hover {
+    background-color:darkgrey;
+  }
+  

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
@@ -12,13 +12,19 @@ import { StockComponent } from './stock/stock.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { PedidoComponent } from './pedido/pedido.component';
-import { PedidosComponent } from './pedidos/pedidos.component';
 import { CtacteComponent } from './ctacte/ctacte.component';
 import { ComprobantesComponent } from './comprobantes/comprobantes.component';
 import { ProductodetalleComponent } from './productodetalle/productodetalle.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
+import { ProductsComponent } from './products/products.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NuevopedidoComponent } from './pedidos/nuevopedido/nuevopedido.component';
+import { ListadopedidosComponent } from './pedidos/listadopedidos/listadopedidos.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+/*Angula material*/
+import { MaterialModule } from '../shared/material.module';
+
 
 @NgModule({
   declarations: [
@@ -30,11 +36,12 @@ import {MatButtonModule} from '@angular/material/button';
     EmpresaComponent,
     PerfilesComponent,
     PerfilComponent,
-    PedidoComponent,
-    PedidosComponent,
     CtacteComponent,
     ComprobantesComponent,
     ProductodetalleComponent,
+    ProductsComponent,
+    NuevopedidoComponent,
+    ListadopedidosComponent,
   ],
   exports: [
     DashboardComponent,
@@ -45,20 +52,21 @@ import {MatButtonModule} from '@angular/material/button';
     EmpresaComponent,
     PerfilesComponent,
     PerfilComponent,
-    PedidoComponent,
-    PedidosComponent,
     CtacteComponent,
     ComprobantesComponent,
     PagesComponent,
     NgxSpinnerModule,
+    MaterialModule,
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     RouterModule,
     NgxSpinnerModule,
-    MatDialogModule,
-    MatButtonModule
+    FlexLayoutModule,
+    MaterialModule,
   ]
 })
 export class PagesModule { }

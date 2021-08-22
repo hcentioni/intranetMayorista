@@ -9,7 +9,7 @@ export class UsersService {
   private url=environment.API_URL;
 
   constructor(private http:HttpClient) { }
-  usersGet(idCliente){
+  usersGet(){
     const token =localStorage.getItem('token');
     const id = (JSON.parse(atob(token.split('.')[1]))).user.IdCliente;
     

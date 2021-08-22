@@ -1,0 +1,118 @@
+<div id="impresion" class="container-fluid">
+  <div class="invoice p-3 mb-3">
+    <div class="row">
+      <div class="col-12">
+        <h4>
+          <small class="float-right">Fecha: {{today | date:'dd-MM-yyyy'}}</small>
+        </h4>
+      </div>
+    </div>
+    <div class="row invoice-info">
+      <div class="col-sm-12 invoice-col">
+        <address>
+          Cuenta:<strong> {{userData.Codigo}}</strong><br>
+          Razón Social:<strong> {{userData.RazonSocial}}</strong><br>
+          Email:<strong> {{userData.emailFE}}</strong><br>
+          F.Pago:<strong> Contado </strong> Condición De Venta:<strong> Cheque 30 días</strong>
+        </address>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>
+<!-- /.card-body 
+<div class="container-fluid">
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Nuevo Item</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-4">
+          <input type="text" class="form-control" placeholder="Código">
+        </div>
+        <div class="col-3">
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-3">
+          <input type="number" min="1" class="form-control" value="1">
+        </div>
+        <div class="col-2">
+          <button type="button" class="btn btn-block btn-success btn-sm">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> /.card-body -->
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-8">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-exclamation-triangle"></i>
+          Productos del carrito
+        </h3>
+      </div>
+      <div class="card-body">
+        <div *ngFor="let producto of pedido.Productos">
+          <app-itemcarrito [productoPedido]="producto"></app-itemcarrito>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-exclamation-triangle"></i>
+          Resumen
+        </h3>
+      </div>
+      <div class="card-body">
+       
+          <p class="lead">Totales</p>
+
+          <div class="table-responsive">
+            <table class="table">
+              <tbody><tr>
+                <th style="width:50%">SubTotal:</th>
+                <td>{{pedido.SubTotalNeto | number : '1.2-2' }}</td>
+              </tr>
+              <tr>
+                <th>IVA</th>
+                <td>{{pedido.Iva | number : '1.2-2' }}</td>
+              </tr>
+              <tr>
+                <th>Dto:</th>
+                <td>{{pedido.Dto | number : '1.2-2' }}</td>
+              </tr>
+              <tr>
+                <th>Total:</th>
+                <td>{{pedido.Total | number : '1.2-2' }}</td>
+              </tr>
+            </tbody></table>
+          </div>
+    
+      </div>
+    </div>
+    <div class="row no-print">
+      <div class="col-12">
+        <a  rel="noopener" (click)="printer()" class="btn btn-default"><i class="fas fa-print"></i> Imprimir</a>
+
+        <button type="button"  (click)="printer()" class="btn btn-success float-right"><i class="far fa-credit-card"></i> 
+          Enviar Pedido
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="container-fluid">
+
+<div class="callout callout-info">
+  <h5><i class="fas fa-info"></i> Nota:</h5>
+  Pedido generado desde la web
+</div>
+
+</div>

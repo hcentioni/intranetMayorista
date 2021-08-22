@@ -1,0 +1,169 @@
+<!-- FILTRO -->
+<div class="container-fluid">
+  <div class="card card-default color-palette-box">
+      <div class="card-body">
+          <app-shearch (search)="handleSearch($event)"></app-shearch>
+      </div>
+  </div>
+</div>
+<!-- FIN FILTRO -->
+<!-- ACA ARRANCA LA TABLA -->
+<div class="container-fluid">
+  <div class="card card-default color-palette-box">
+      <div class="card-body">
+        <table class="table table-borderless">
+          <tbody>
+            <tr *ngFor="let item of listadoProducto">
+              <div class="container mt-3 p-2" style="border-radius: 5px; border:gray 1px solid;">
+                <div class="row">
+                  <div class="col-sm-7 p-0">
+                    <div class="d-flex">
+                      <div class="my-auto">
+                        <img src="{{item.Imagen}}" width="50" height="50" alt="">
+                      </div>
+                      <div class="p-2 flex-grow-1">
+                        <ng-continer *ngIf="item.Carrusel == false; else elseBlockDetalle">
+                          <div style="text-justify: auto;">
+                            <a [routerLink]="['productodetalle', item.IdArticulo]">{{ item.Detalle}}</a>
+                          </div>
+                        </ng-continer>
+                        <ng-template #elseBlockDetalle>
+                          <div style="text-justify: auto;">
+                            <a [routerLink]="['productodetalle', item.IdArticulo]">{{ item.Detalle}}</a>
+                            <span
+                              class="badge badge-info right">Destacado</span></div>
+                        </ng-template>
+                        <div class="codigo">{{item.Codigo}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-5 p-0">
+                    <div class="d-flex mb-3 bg-light">
+                      
+                      <ng-continer *ngIf="item.StockLogico<=0; else elseBlock1 ">
+                        <div class="p-2 bg-light">
+                          <div>
+                            <span class="badge badge-danger">SUC</span>
+                          </div>
+                          <div>
+                            <span class="badge badge-danger">0</span>
+                          </div>
+                        </div>
+                      </ng-continer>
+                      <ng-template #elseBlock1>
+                        <ng-continer *ngIf="item.StockLogico>=0 && item.StockLogico<=item.StockMin; else elseBlock2 ">
+                          <div class="p-2 bg-light">
+                            <div>
+                              <span class="badge badge-warning">SUC</span>
+                            </div>
+                            <div>
+                              <span class="badge badge-warning">{{item.StockLogico}}</span>
+                            </div>
+                          </div>
+                        </ng-continer>
+                        <ng-template #elseBlock2>
+                          <ng-continer *ngIf="item.StockLogico>=item.StockMin && item.StockLogico<=item.StockMax; else elseBlock3">
+                            <div class="p-2 bg-light">
+                              <div>
+                                <span class="badge badge-primary">SUC</span>
+                              </div>
+                              <div>
+                                <span class="badge badge-primary">{{item.StockLogico}}</span>
+                              </div>
+                            </div>
+                          </ng-continer>
+                        </ng-template>
+                        <ng-template #elseBlock3>
+                          <div class="p-2 bg-light">
+                            <div>
+                              <span class="badge badge-success">SUC</span>
+                            </div>
+                            <div>
+                              <span class="badge badge-success">{{item.StockLogico}}</span>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ng-template>
+             
+    
+              
+                      <ng-continer *ngIf="item.StockResto<=0; else elseBlockCDG1 ">
+                        <div class="p-2 bg-light">
+                          <div>
+                            <span class="badge badge-danger">CDG</span>
+                          </div>
+                          <div>
+                            <span class="badge badge-danger">0</span>
+                          </div>
+                        </div>
+                      </ng-continer>
+                      <ng-template #elseBlockCDG1>
+                        <ng-continer *ngIf="item.StockResto>=0 && item.StockResto<=item.StockMin; else elseBlockCDG2 ">
+                          <div class="p-2 bg-light">
+                            <div>
+                              <span class="badge badge-warning">CDG</span>
+                            </div>
+                            <div>
+                              <span class="badge badge-warning">{{item.StockResto}}</span>
+                            </div>
+                          </div>
+                        </ng-continer>
+                        <ng-template #elseBlockCDG2>
+                          <ng-continer *ngIf="item.StockResto>=item.StockMin && item.StockResto<=item.StockMax; else elseBlockCDG3">
+                            <div class="p-2 bg-light">
+                              <div>
+                                <span class="badge badge-primary">CDG</span>
+                              </div>
+                              <div>
+                                <span class="badge badge-primary">{{item.StockResto}}</span>
+                              </div>
+                            </div>
+                          </ng-continer>
+                        </ng-template>
+                        <ng-template #elseBlockCDG3>
+                          <div class="p-2 bg-light">
+                            <div>
+                              <span class="badge badge-success">CDG</span>
+                            </div>
+                            <div>
+                              <span class="badge badge-success">{{item.StockResto}}</span>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ng-template>
+    
+                      <div class="p-2 ml-auto bg-light">
+                        <div *ngIf="item.TipoAlicuota != '( IVA Incluido )'; else elseBlockConIva">
+                          <!-- PRECIOS NETOS -->
+                          <div fxLayout="column" fxLayoutAlign="space-between start">
+                            <div class="precio">{{item.Simbolo}} {{ item.P_Neto | number : '1.2-2'}}</div>
+                            <div class="detalleiva">{{item.TipoAlicuota}}</div>
+                          </div>
+                        </div>
+                        <ng-template #elseBlockConIva>
+                           <!-- PRECIOS FINALES -->
+                          <div fxLayout="column" fxLayoutAlign="space-between start">
+                            <div class="precio">{{item.Simbolo}} {{ item.P_Final | number : '1.2-2'}}</div>
+                            <div class="detalleiva">Precio Final</div>
+                          </div>
+                        </ng-template>
+                      </div>
+                      <div class="p-2 bg-light">
+                        <input style="width: 60px; text-align: center;" type="number" name="valueCant"
+                          id="{{item.IdArticulo + 'TextBox'}}" min="1" placeholder="1" value="1">
+                        <a [routerLink]="" (click)="addCarrito(item)"><i class="fas fa-cart-plus fa-xs text-primary ml-3"
+                            style="cursor: pointer;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+        <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+          (page)="pageEvent = $event; onPaginateChange($event)" aria-label="Select page">
+        </mat-paginator>
+      </div>
+  </div>
+</div>

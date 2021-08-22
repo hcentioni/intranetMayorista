@@ -1,0 +1,119 @@
+<section id="impresion" class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- CODIGO Y DESCRIPCION DEL PRODUCTO -->
+            <div class="col-md-12"
+                style="border: solid 0.5px #adb5bd; border-radius: 5px; width: 100%; margin-bottom: 1px;">
+                <!-- IMAGEN -->
+                <div class="row">
+                    <div class="col-3 my-auto">
+                        <img class="img-fluid" src="{{productoPedido.producto.Imagen}}" width="90" height="90" alt="">
+                    </div>
+                    <div class="col-9">
+                        <div class="text-codigo">
+                            <p> {{productoPedido.producto.Codigo}} </p>
+                        </div>
+                        <div class="text-detalle">
+                            {{productoPedido.producto.Detalle}}
+                        </div>
+                        <div class="text-detalle">
+                            P.Lista: <strong>{{productoPedido.producto.Simbolo}} {{productoPedido.producto.P_Neto |
+                                number :
+                                '1.2-2'}}</strong>
+                        </div>
+                        <div class="text-detalle">
+                            Dto: <strong>{{productoPedido.producto.Dto1 |
+                                number :
+                                '1.2-2'}}%</strong>
+                        </div>
+                        <div class="text-detalle">
+                            P.Unitario: <strong>{{productoPedido.producto.Simbolo}} {{productoPedido.producto.P_NetoDto |
+                                number :
+                                '1.2-2'}}</strong>
+                        </div>
+                        <hr>
+                        <div class="stock">
+                            <div style="display: flex;">
+                                <div class="stock-contenido bg-success">
+                                    SUC
+                                </div>
+                                <div class="stock-contenido bg-success">
+                                    {{productoPedido.producto.StockLogico}}
+                                </div>
+                                <ng-continer *ngIf="productoPedido.producto.StockResto<=0; else elseBlock1 ">
+                                    <div class="stock-contenido badge-danger">
+                                        CDG
+                                    </div>
+                                </ng-continer>
+                                <ng-template #elseBlock1>
+                                    <ng-continer
+                                        *ngIf="productoPedido.producto.StockResto>=0 && productoPedido.producto.StockResto<=productoPedido.producto.StockMin; else elseBlock2 ">
+                                        <div class="stock-contenido badge-warning">
+                                            CDG
+                                        </div>
+                                    </ng-continer>
+                                    <ng-template #elseBlock2>
+                                        <div class="stock-contenido badge-success">
+                                            CDG
+                                        </div>
+                                    </ng-template>
+                                </ng-template>
+                                <ng-continer *ngIf="productoPedido.producto.StockResto<=0; else elseBlock01 ">
+                                    <div class="stock-contenido badge-danger">
+                                        0
+                                    </div>
+                                </ng-continer>
+                                <ng-template #elseBlock01>
+                                    <ng-continer
+                                        *ngIf="productoPedido.producto.StockResto>=0 && productoPedido.producto.StockResto<=productoPedido.producto.StockMin; else elseBlock02 ">
+                                        <div class="stock-contenido badge-warning">
+                                            {{productoPedido.producto.StockResto}}
+                                        </div>
+                                    </ng-continer>
+                                    <ng-template #elseBlock02>
+                                        <div class="stock-contenido badge-primary">
+                                            {{productoPedido.producto.StockResto}}
+                                        </div>
+                                    </ng-template>
+                                </ng-template>
+                            </div>
+                            Cant:
+                            <mat-form-field>
+                                <button mat-button mat-icon-button matPrefix aria-label="Remove" [color]="getColor()"
+                                    (click)="incrementValue(-_step,productoPedido)"
+                                    [disabled]="shouldDisableDecrement(_value)">
+                                    <mat-icon>remove</mat-icon>
+                                </button>
+                                <input matInput type="number" [(ngModel)]="_value" [max]="_max"
+                                    (focus)="setColor('primary')" (blur)="setColor('default')"
+                                    (change)="onCalcular(productoPedido)" />
+                                <button mat-button mat-icon-button matSuffix aria-label="Add" [color]="getColor()"
+                                    (click)="incrementValue(_step,productoPedido)"
+                                    [disabled]="shouldDisableIncrement(_value)">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                        <hr>
+                        <div class="text-detalle">
+                            SubTotal: <span>{{productoPedido.producto.Simbolo}} {{ subTotal | number :'1.2-2'}}</span>
+                        </div>
+                        <div class="text-detalle">
+                            Iva {{productoPedido.producto.Iva}}%: <strong>{{productoPedido.producto.Simbolo}}{{montoIva
+                                | number :'1.2-2'}}</strong>
+                        </div>
+                        <button type="button" style="width: 100px; margin-bottom: 10px;"
+                            (click)="deleteProducto(productoPedido.producto)"
+                            class="btn btn-block btn-outline-danger btn-xs float-right">
+                            <i class="fas fa-trash-alt"> Borrar</i>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
